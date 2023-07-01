@@ -41,40 +41,41 @@ namespace ConsoleCalculator
                             break;
                         case 2:
                             result = number1 - number2;
-                            Console.WriteLine("Result: " + result);
+                            PrintColorMessage(ConsoleColor.Green, "Result: " + result);
                             break;
                         case 3:
                             result = number1 * number2;
-                            Console.WriteLine("Result: " + result);
+                            PrintColorMessage(ConsoleColor.Green, "Result: " + result);
                             break;
                         case 4:
                             if (number2 != 0)
                             {
                                 result = (double)number1 / number2;
-                                Console.WriteLine("Result: " + result);
+                                PrintColorMessage(ConsoleColor.Green, "Result: " + result);
                             }
                             else
                             {
-                                Console.WriteLine("Division by zero is not allowed.");
+                                PrintColorMessage(ConsoleColor.Red, "Cannot divide by zero");
                             }
                             break;
                         case 5:
                             result = number1 % number2;
-                            Console.WriteLine("Result: " + result);
+                            PrintColorMessage(ConsoleColor.Green, "Result: " + result);
                             break;
                         case 6:
                             exit = true;
                             break;
                         default:
-                            Console.WriteLine("Invalid operation number.");
+                            PrintColorMessage(ConsoleColor.Green, "Invalid operation number");
+
                             break;
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                            PrintColorMessage(ConsoleColor.Green, "An error occured" +ex);
 
-                    throw;
                 }
             }
         }
