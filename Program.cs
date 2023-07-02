@@ -18,36 +18,37 @@ namespace ConsoleCalculator
                     Console.Write("Enter the first number: ");
                     int number1 = Convert.ToInt32(Console.ReadLine());
 
+                    Console.Write("Enter the operation sign; + or - or * or / or %: ");
+                    // int operation = Convert.ToInt32(Console.ReadLine());
+                    string operation = Console.ReadLine();
                     Console.Write("Enter the second number: ");
                     int number2 = Convert.ToInt32(Console.ReadLine());
 
-                    Console.WriteLine("1 - Addition");
+                   /* Console.WriteLine("1 - Addition");
                     Console.WriteLine("2 - Subtraction");
                     Console.WriteLine("3 - Multiplication");
                     Console.WriteLine("4 - Division");
                     Console.WriteLine("5 - Remainder");
                     Console.WriteLine("6 - Exit");
-
-                    Console.Write("Enter the operation number: ");
-                    int operation = Convert.ToInt32(Console.ReadLine());
+                    */
 
                     double result = 0;
                     switch (operation)
                     {
-                        case 1:
+                        case "+":
                             result = number1 + number2;
-                            //Console.WriteLine("Result: " + result);
+                            
                             PrintColorMessage(ConsoleColor.Green, "Result: " + result);
                             break;
-                        case 2:
+                        case "-":
                             result = number1 - number2;
                             PrintColorMessage(ConsoleColor.Green, "Result: " + result);
                             break;
-                        case 3:
+                        case "*":
                             result = number1 * number2;
                             PrintColorMessage(ConsoleColor.Green, "Result: " + result);
                             break;
-                        case 4:
+                        case "/":
                             if (number2 != 0)
                             {
                                 result = (double)number1 / number2;
@@ -58,15 +59,15 @@ namespace ConsoleCalculator
                                 PrintColorMessage(ConsoleColor.Red, "Cannot divide by zero");
                             }
                             break;
-                        case 5:
+                        case "%":
                             result = number1 % number2;
                             PrintColorMessage(ConsoleColor.Green, "Result: " + result);
                             break;
-                        case 6:
+                        case "q":
                             exit = true;
                             break;
                         default:
-                            PrintColorMessage(ConsoleColor.Green, "Invalid operation number");
+                            PrintColorMessage(ConsoleColor.DarkRed, "Invalid operation number");
 
                             break;
                     }
@@ -74,45 +75,37 @@ namespace ConsoleCalculator
                 }
                 catch (Exception ex)
                 {
-                            PrintColorMessage(ConsoleColor.Green, "An error occured" +ex);
-
+                            PrintColorMessage(ConsoleColor.Red, "An error occured" +ex);
                 }
             }
         }
         static void GetAppInfo()
         {
             // Set app vars
-            string appName = "Windows Console Application";
+            string appName = "Windows Console Calculator Application";
             string appVersion = "1.0.0";
             string appAuthor = "Hassan Bulega";
 
-  
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("************************************************************");
+            Console.WriteLine("**************************************************************************");
             Console.WriteLine("{0}: Version {1} by {2}", appName, appVersion, appAuthor);
-            Console.WriteLine("************************************************************");
+            Console.WriteLine("**************************************************************************");
 
             Console.ResetColor();
         }
         static void GreetUser()
-        {
-            // Ask users name
+        {            
             Console.WriteLine("What is your name?");
-
-            // Get user input
+            
             string inputName = Console.ReadLine();
 
-            Console.WriteLine("Hello {0}, Welcome to our Calculator its maths time...", inputName);
+            Console.WriteLine("Hello {0}, Welcome to our Calculator its Maths time...", inputName);
         }
         static void PrintColorMessage(ConsoleColor color, string message)
         {
-            // Change text color
-            Console.ForegroundColor = color;
-
-            // Tell user its not a number
-            Console.WriteLine(message);
-
-            // Reset text color
+            
+            Console.ForegroundColor = color;            
+            Console.WriteLine(message);            
             Console.ResetColor();
         }
     }
